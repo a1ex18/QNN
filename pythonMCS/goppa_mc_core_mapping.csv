@@ -1,0 +1,100 @@
+function_or_class,variable,role
+genSMatrix,k,requested matrix dimension
+genSMatrix,sMaybe,candidate random 0/1 matrix (k x k)
+genPMatrix,n,matrix dimension
+ genPMatrix,keep,if True return identity
+ genPMatrix,p,identity ndarray base
+ genPMatrix,perm,permuted ndarray returned as matrix
+modTwo,C,input container
+modTwo,D,temporary copy (unused)
+bitFlip,C,input vector (1,n)
+bitFlip,n,flip control (0:no flip, -1:random, >0:1-indexed)
+bitFlip,arr,ndarray copy used for mutation
+bitFlip,is_matrix,flag to preserve return type
+bitFlip,idx,computed 0-based index to flip
+all_zeros,d,input iterable
+checkOldGuesses,oG,list of prior guesses (objects with .A1)
+checkOldGuesses,newGuess,candidate guess object
+makeString,matrix,input matrix to stringify
+generate_error_vector_weight,n,vector length
+generate_error_vector_weight,weight,hamming weight clamped 0..n
+generate_error_vector_weight,positions,chosen indexes set to 1
+generate_error_vector_weight,e,returned np.matrix(1,n)
+GoppaDecoder,m,GF exponent
+GoppaDecoder,t,Goppa degree / error capability
+GoppaDecoder,GF,galois.GF(2**m) object
+GoppaDecoder,g,galois.Poly Goppa polynomial
+GoppaDecoder,L,support list (non-roots)
+GoppaDecoder,n,code length (len(L))
+GoppaDecoder,H_field,parity-check over GF (t x n)
+GoppaDecoder,H_binary,binary parity-check (t*m x n)
+GoppaDecoder,G_binary,binary generator matrix (null-space rows)
+GoppaDecoder,k,message dimension (# rows in G_binary)
+_generate_goppa_polynomial,coeffs,polynomial coefficients list
+_generate_support,support,temp list of support elements
+_build_parity_check_over_gf,n,number of support elements
+_build_parity_check_over_gf,H,parity-check array dtype GF
+_build_parity_check_over_gf,i,column index
+_build_parity_check_over_gf,alpha,support element
+_build_parity_check_over_gf,denom,g(alpha)
+_build_parity_check_over_gf,inv,1/denom in GF
+_build_parity_check_over_gf,pow_alpha,alpha**j running power
+_expand_to_binary,t,rows in GF parity-check
+_expand_to_binary,n,cols in GF parity-check
+_expand_to_binary,H_bin,output uint8 array (t*m x n)
+_expand_to_binary,val,integer rep of GF element
+_expand_to_binary,bits,m-length bit list (LSB-first)
+compute_parity_check_matrix,H_binary,returns H_binary as np.matrix
+compute_generator_matrix,H,H input
+compute_generator_matrix,H_arr,H & 1
+compute_generator_matrix,N,null-space basis
+compute_generator_matrix,G,returned generator matrix
+compute_generator_matrix,k,dimension (# rows of G)
+_gf2_rref,A,working binary matrix copy
+_gf2_rref,m,rows
+_gf2_rref,n,cols
+_gf2_rref,r,current pivot row index
+_gf2_rref,pivots,pivot column list
+_gf2_rref,c,column loop var
+_gf2_rref,rr,row loop var
+gf2_null_space,R,rref result
+gf2_null_space,pivots,pivot columns
+gf2_null_space,free_cols,non-pivot column indices
+gf2_null_space,basis,list of basis vectors
+gf2_null_space,v,candidate basis vector
+decode_syndrome,syndrome_matrix,input syndrome
+decode_syndrome,syndrome,flattened binary array
+decode_syndrome,H_bin,binary parity-check
+decode_syndrome,n,code length
+decode_syndrome,max_search_weight,min(t,4) cap
+decode_syndrome,w,current weight tried
+decode_syndrome,pos,tuple of positions
+decode_syndrome,e,error vector trial
+syndromeLookupGoppa,H_bin_matrix,input parity-check
+syndromeLookupGoppa,cHat,received row-vector
+syndromeLookupGoppa,goppa_decoder,decoder instance
+syndromeLookupGoppa,syndrome,computed syndrome
+syndromeLookupGoppa,err,result of decode_syndrome
+syndromeLookupGoppa,arr,flattened err
+syndromeLookupGoppa,ones,indices of ones in err
+privateKeyH84,goppa_decoder,GoppaDecoder instance
+privateKeyH84,m,Goppa param
+privateKeyH84,t,Goppa param
+privateKeyH84,n,code length
+privateKeyH84,H,binary parity-check
+privateKeyH84,G,binary generator
+privateKeyH84,k,message dimension
+privateKeyH84,S,kxk scrambling matrix
+privateKeyH84,P,nxn permutation matrix
+privateKeyH84,makeGPrime,S*G*P mod2
+privateKeyH84,decrypt,c,input ciphertext
+privateKeyH84,decrypt,cHat,permutation undone
+privateKeyH84,decrypt,error_pos,position found by decoder
+privateKeyH84,decrypt,m_mat,cHat corrected via bitFlip
+privateKeyH84,decrypt,m_bits,final message bits
+privateKeyH84,decryptFile,cb1,cb2,raw bytes read
+privateKeyH84,decryptFile,b1,b2,integer bytes
+privateKeyH84,decryptFile,c1_m,c2_m,matrix padded/truncated
+privateKeyH84,dnaFileDecrypt,c1,c2,input DNA lines
+goppa_mc_core_mapping.md,Generated,Mapping markdown file
+goppa_mc_core_mapping.csv,Generated,Mapping CSV file
